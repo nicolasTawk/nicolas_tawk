@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Car Rental Company</title>
+    <!-- Add any CSS files or inline CSS here -->
+</head>
+<body>
+    <header>
+        <h1>Welcome to Our Car Rental Service</h1>
+        <nav>
+            <ul>
+                <li><a href="/cars">View Cars</a></li>
+                <li><a href="/rent-a-car">Rent a Car</a></li>
+                <form action="/search-cars" method="get">
+                    <input type="text" name="name" placeholder="Enter car name or model" required>
+                    <button type="submit">Search Cars</button>
+                </form>
+                <!-- Add other navigation links as needed -->
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Available Cars</h2>
+            <!-- You can display a few featured cars here -->
+        </section>
+
+        <section>
+            <h2>Rent a Car</h2>
+            <p>Choose from a wide range of cars for your next trip.</p>
+            <!-- Add a search or selection form for renting a car -->
+        </section>
+
+        <section>
+            <h2>About Us</h2>
+            <p>Learn more about our car rental services and our commitment to providing the best experience.</p>
+        </section>
+        <section>
+            <h2>Admin Login</h2>
+            <form action="/admin/login" method="POST">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+
+                <button type="submit">Login</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2023 Car Rental Company</p>
+        <!-- Add footer content here -->
+    </footer>
+</body>
+</html>

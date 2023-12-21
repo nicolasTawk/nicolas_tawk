@@ -1,0 +1,10 @@
+<!-- rent-a-car.ejs -->
+<form action="/create-rental" method="post">
+    <select name="carId">
+        <% cars.forEach(car => { %>
+            <option value="<%= car.id %>"><%= car.name %></option>
+        <% }); %>
+    </select>
+    <!-- Include other form fields as necessary -->
+    <button type="submit">Rent this Car</button>
+</form>

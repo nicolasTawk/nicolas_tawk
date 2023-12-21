@@ -1,0 +1,8 @@
+<!-- carSearchResults.ejs -->
+<% if (cars && cars.length > 0) { %>
+    <% cars.forEach(car => { %>
+        <p><%= car.Model %> - <%= car.Make %> - <%= car.Year %></p>
+    <% }); %>
+<% } else { %>
+    <p>No cars found matching your search.</p>
+<% } %>

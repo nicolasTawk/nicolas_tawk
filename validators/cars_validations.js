@@ -17,7 +17,6 @@ const validateUpdateCar = [
 
 const validateDeleteCar = [
   param('id').isNumeric().withMessage('ID must be a valid number')
- 
 ];
 
 module.exports = {

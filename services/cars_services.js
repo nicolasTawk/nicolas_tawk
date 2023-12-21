@@ -52,6 +52,18 @@ const DeleteCar = async (CarID) => {
         throw error;
     }
 }
+// cars_services.js
+
+const searchCarsByName = async (name) => {
+    try {
+    
+        const result = await query("SELECT * FROM cars WHERE Model LIKE ?", [`%${name}%`]);
+        return result;
+    } catch (error) {
+        throw error;
+    }
+}
 
 
-module.exports = { AddNewCar, UpdateCarDetails, GetAllCars, GetCarById, DeleteCar };
+
+module.exports = { AddNewCar, UpdateCarDetails, GetAllCars, GetCarById, DeleteCar,searchCarsByName };

@@ -3,7 +3,7 @@ const rentalServices = require('../services/rental_services');
 const createRental = async (req, res) => {
     try {
         const result = await rentalServices.createRental(req.body);
-        res.status(201).json(result);
+        res.redirect('/rental-success');
     } catch (error) {
         res.status(500).json({ error: error.message });
     }

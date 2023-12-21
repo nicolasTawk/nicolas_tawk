@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Delete Cars</title>
+</head>
+<body>
+    <h1>Delete Cars</h1>
+    <% cars.forEach(car => { %>
+        <div>
+            <p><%= car.make %> <%= car.model %> - <%= car.year %></p>
+            <form action="/cars/delete/<%= car.id %>" method="post">
+                <button type="submit">Delete</button>
+            </form>
+        </div>
+    <% }); %>
+</body>
+</html>

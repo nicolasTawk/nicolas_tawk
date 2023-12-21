@@ -7,6 +7,8 @@ router.post('/createrental',validateNewRental, rentalController.createRental);
 router.get('/cost/:rentalId', rentalController.getRentalCost);
 router.get('/car/:carId/customers', rentalController.getCustomersByCarId);
 router.get('/customer/:customerId/cars', rentalController.getCarsRentedByCustomer);
+router.post('/create-rental', rentalController.createRental);
+
 
 
 module.exports = router;

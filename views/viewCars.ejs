@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>View Cars</title>
+    <!-- Add CSS and other head elements here -->
+</head>
+<body>
+    <h1>Available Cars</h1>
+    <div>
+        <% if(cars.length > 0) { %>
+            <% cars.forEach(car => { %>
+                <div>
+                    <h2><%= car.Make %> <%= car.Model %></h2>
+                    <p>Year: <%= car.Year %></p>
+                    <!-- Add more car details as needed -->
+                </div>
+            <% }) %>
+        <% } else { %>
+            <p>No cars available at the moment.</p>
+        <% } %>
+    </div>
+</body>
+</html>

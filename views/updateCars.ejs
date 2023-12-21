@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Update Cars</title>
+</head>
+<body>
+    <h1>Update Cars</h1>
+    <% cars.forEach(car => { %>
+        <div>
+            <p><%= car.make %> <%= car.model %> - <%= car.year %></p>
+            <a href="/cars/update/<%= car.id %>">Edit</a>
+        </div>
+    <% }); %>
+</body>
+</html>
