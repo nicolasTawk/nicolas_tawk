@@ -24,11 +24,15 @@ router.get('/add', carsController.addNewCarForm);
 router.post('/add', validateNewCar, carsController.addNewCar);
 
 // Route to display form for updating a car
-router.get('/update/:id', carsController.updateCarForm);
+
 
 // Route to handle the submission of the update car form
 router.post('/update/:id', validateUpdateCar, carsController.updateCar);
-
+router.get('/updatee', carsController.updateCarsPage)
+//for testing purpeses 
+router.get('/upd', (req, res) => {
+    res.render('updateCars');
+});
 // Route to handle car deletion
 router.post('/delete/:id', validateDeleteCar, carsController.deleteCar);
 router.get('/search-cars', carsController.searchCars);

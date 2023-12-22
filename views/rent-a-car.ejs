@@ -1,10 +1,109 @@
 <!-- rent-a-car.ejs -->
-<form action="/create-rental" method="post">
+<!-- <form action="/create-rental" method="post">
     <select name="carId">
         <% cars.forEach(car => { %>
             <option value="<%= car.id %>"><%= car.name %></option>
         <% }); %>
-    </select>
+    </select> -->
     <!-- Include other form fields as necessary -->
-    <button type="submit">Rent this Car</button>
-</form>
+    <!-- <button type="submit">Rent this Car</button>
+</form> -->
+
+
+
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <title>View Cars</title>
+</head>
+<body>
+    <h1>Available Cars</h1>
+    <div>
+        <% if(cars.length > 0) { %>
+            <% cars.forEach(car => { %>
+                <div>
+                    <h2><%= car.Make %> <%= car.Model %></h2>
+                    <p>Year: <%= car.Year %></p>
+                </div>
+            <% }) %>
+        <% } else { %>
+            <p>No cars available at the moment.</p>
+        <% } %>
+    </div>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>View Cars</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+    <style>
+        .thead-custom th {
+            background-color: #004d80; 
+            color: white;
+        }
+
+        .table-striped tbody tr:nth-of-type(odd) {
+            background-color: #e6f2ff; 
+        }
+        .table-striped tbody tr:nth-of-type(even) {
+            background-color: #ffffff; 
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="mb-3">Available Cars</h1>
+        <div class="table-responsive">
+            <% if(cars.length > 0) { %>
+                <table class="table table-striped">
+                    <thead class="thead-custom">
+                        <tr>
+                            <th>Make</th>
+                            <th>Model</th>
+                            <th>Year</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% cars.forEach(car => { %>
+                            <tr>
+                                <td><%= car.Make %></td>
+                                <td><%= car.Model %></td>
+                                <td><%= car.Year %></td>
+                                <td>
+                                    <button class="btn btn-danger" onclick="rent()">Rent</button>
+                                </td>
+                            </tr>
+                        <% }) %>
+                    </tbody>
+                </table>
+            <% } else { %>
+                <p>No cars available at the moment.</p>
+            <% } %>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <!-- <script>
+        function deleteCar(carId) {
+            if(confirm('Are you sure you want to delete this car?')) {
+                fetch('/cars/delete' + carId, { method: 'DELETE' })
+                .then(response => response.text())
+                .then(data => {
+                    console.log(data);
+                    // Refresh the page or remove the deleted row from the table
+                    location.reload(); // Simple way to refresh the page
+                })
+                .catch(error => console.error('Error:', error));
+            }
+        }
+    </script> -->
+</body>
+</html>

@@ -4,15 +4,11 @@ const { CreateCustomer, GetAllCustomers, UpdateCustomerProfile, DeleteCustomer, 
 
 const createCustomer = async (req, res) => {
     try {
-        const errors = validationResult(req)
-
-        if(!errors.isEmpty){
-            return res.status(400).json({errors: errors.array()});
-        }
-        const result = await CreateCustomer(req.body);
-        res.status(201).json(result);
+        const customerData = req.body; // Extracting data from the form
+        const result = await CreateCustomer(customerData);
+        res.render('addCustomer', { result });
     } catch (error) {
-        res.status(500).json({ error: error.message });
+        res.status(500).send(error.message);
     }
 };
 

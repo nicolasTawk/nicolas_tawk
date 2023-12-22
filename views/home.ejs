@@ -2,35 +2,59 @@
 <html>
 <head>
     <title>Car Rental Company</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="/design.css" type="text/css">
+
+    <style>
+    .button-1 {
+        background-color: #004d80; 
+        border-radius: 8px; 
+        color: #FFFFFF; 
+        height: 50px;
+        text-decoration: none;  
+        display: inline-block; 
+    }
+    
+    .button-1 a {
+        text-decoration: none; 
+        color: white;          
+        display: inline-block; 
+    }
+
+    .button-1 a:hover {
+        color: #cccccc; 
+    }
+    </style>
+
     <!-- Add any CSS files or inline CSS here -->
 </head>
 <body>
-    <header>
+    <!-- <header>
         <h1>Welcome to Our Car Rental Service</h1>
         <nav>
             <ul>
                 <li><a href="/cars">View Cars</a></li>
-                <li><a href="/rent-a-car">Rent a Car</a></li>
+                <li><a href="/rentals/rent-a-car">Rent a Car</a></li>
                 <form action="/search-cars" method="get">
                     <input type="text" name="name" placeholder="Enter car name or model" required>
                     <button type="submit">Search Cars</button>
-                </form>
+                </form> -->
                 <!-- Add other navigation links as needed -->
-            </ul>
+            <!-- </ul>
         </nav>
     </header>
 
     <main>
         <section>
-            <h2>Available Cars</h2>
+            <h2>Available Cars</h2> -->
             <!-- You can display a few featured cars here -->
-        </section>
+        <!-- </section>
 
         <section>
             <h2>Rent a Car</h2>
-            <p>Choose from a wide range of cars for your next trip.</p>
+            <p>Choose from a wide range of cars for your next trip.</p> -->
             <!-- Add a search or selection form for renting a car -->
-        </section>
+        <!-- </section>
 
         <section>
             <h2>About Us</h2>
@@ -45,14 +69,106 @@
                 <label for="password">Password:</label>
                 <input type="password" id="password" name="password" required>
 
-                <button type="submit">Login</button>
+                <button  type="submit">Login</button>
             </form>
         </section>
     </main>
 
     <footer>
-        <p>© 2023 Car Rental Company</p>
+        <p>© 2023 Car Rental Company</p> -->
         <!-- Add footer content here -->
-    </footer>
+        
+    <!-- </footer> -->
+
+
+
+
+
+
+    <div class= "home w-100 h-100 p-5" style="background-color: white;">
+        <div class="title row justify-content-center align-item-center w-100 py-5" style="font-size: 2rem; color: #004d80;">Car Rental Company</div>
+  
+        <div class="row">
+            <div class="col-6  col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                <form class="w-100" action="/search-cars" method="get">
+                    <input class="w-50" type="text" name="name" placeholder="Enter car name or model" style="height: 50px;" required>
+                    <button class="button-1 w-25"  type="submit">Search Cars</button>
+                </form>
+            </div>
+            <div class=" col-3 col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                <button class="button-1 w-50">
+                    <a href="/cars">View Cars</a>
+                </button>
+               
+            </div>
+            <div class="col-3 col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                <button class="button-1 w-50">
+                    <a  href="/cars/rent-a-car">Rent Cars</a>
+                </button>
+               
+            </div>
+
+        </div>
+        <div class="title row justify-content-center align-item-center w-100 py-5" style="font-size: 2rem; color: #004d80;">About Us</div>
+        <div class="row justify-content-center align-item-center">
+            <div class="col-6">
+                <p style="font-size: 1.5rem; color: grey;">Established in 2005, CityCar Rentals has proudly served the Los Angeles community and beyond as the premier choice for unforgettable car rentals, backed by exceptional service and quality. </p>
+            </div>
+        </div>
+        <div class="title row justify-content-center align-item-center w-100 py-5" style="font-size: 2rem; color: #004d80;">Admin Login</div>
+        <div class="row justify-content-center align-item-center w-100">
+                <form class="col-lg-6 col-md-6 col-sm-8 col-xs-12" action="/admin/login" method="POST">
+                    <div class="row">
+                        <div class="col-12">
+                          <label class="py-2" style="color: #004d80; font-size: 1.5rem;" for="username">
+                            Username
+                          </label>
+                        </div>
+                        <div class="col-12 ">
+                          <input 
+                            class="form-control py-2"
+                            style="height: 50px;" placeholder="Username" type="text" id="username" name="username" required>
+                        </div>
+                      </div>
+                      
+                      <div class="row pt-3 pb-5">
+                        <div class="col-12">
+                          <label class=" py-2" style="color: #004d80; font-size: 1.5rem" for="password">
+                            Password
+                          </label>
+                        </div>
+                        <div class="col-12 pe-0">
+                          <input 
+                            class="form-control py-2"
+                           style="height: 50px;" placeholder="Password" type="password" id="password" name="password" required>
+                        </div>
+                      </div>
+                      <div class="row pt-3 pb-5 justify-content-center align-item-center">
+                        <div class="col-6 justify-content-center align-item-center">
+                            <button class="w-100 button-1" type="submit" >Login</button>
+                        </div>
+                      </div>
+                </form>
+        </div> 
+            
+        </div>
+
+    </div>
+    
+
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
 </body>
 </html>
+
+

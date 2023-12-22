@@ -1,15 +1,109 @@
+
+
 <!DOCTYPE html>
 <html>
 <head>
     <title>Update Cars</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+    <style>
+        .thead-custom th {
+            background-color: #004d80; 
+            color: white;
+        }
+
+        .table-striped tbody tr:nth-of-type(odd) {
+            background-color: #e6f2ff; 
+        }
+        .table-striped tbody tr:nth-of-type(even) {
+            background-color: #ffffff; 
+        }
+    </style>
 </head>
 <body>
-    <h1>Update Cars</h1>
-    <% cars.forEach(car => { %>
-        <div>
-            <p><%= car.make %> <%= car.model %> - <%= car.year %></p>
-            <a href="/cars/update/<%= car.id %>">Edit</a>
+    <div class="container mt-5">
+        <h1 class="mb-3">Available Cars</h1>
+        <div class="table-responsive">
+            <% if(cars.length > 0) { %>
+                <table class="table table-striped">
+                    <thead class="thead-custom">
+                        <tr>
+                            <th>Make</th>
+                            <th>Model</th>
+                            <th>Year</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% cars.forEach(car => { %>
+                            <tr>
+                                <td><%= car.Make %></td>
+                                <td><%= car.Model %></td>
+                                <td><%= car.Year %></td>
+                                <td>
+                                    <button class="btn button-1" data-toggle="modal" data-target="#editCarModal" onclick="editCar('<%= car.Id %>', '<%= car.Make %>', '<%= car.Model %>', '<%= car.Year %>')">Edit</button>
+                                </td>
+                            </tr>
+                        <% }) %>
+                    </tbody>
+                </table>
+            <% } else { %>
+                <p>No cars available at the moment.</p>
+            <% } %>
         </div>
-    <% }); %>
+    </div>
+
+    <div class="modal fade" id="editCarModal" tabindex="-1" role="dialog" aria-labelledby="editCarModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editCarModalLabel">Edit Car</h5>
+                    <button type="button" class="button-1 close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="editCarForm">
+                        <!-- Form fields for car information -->
+                        <input type="hidden" id="editCarId">
+                        <div class="form-group">
+                            <label for="editCarMake">Make</label>
+                            <input type="text" class="form-control" id="editCarMake">
+                        </div>
+                        <div class="form-group">
+                            <label for="editCarModel">Model</label>
+                            <input type="text" class="form-control" id="editCarModel">
+                        </div>
+                        <div class="form-group">
+                            <label for="editCarYear">Year</label>
+                            <input type="text" class="form-control" id="editCarYear">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary" form="editCarForm">Save Changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <script>
+        function editCar(id, make, model, year) {
+            // Populate the modal fields with car information
+            document.getElementById('editCarId').value = id;
+            document.getElementById('editCarMake').value = make;
+            document.getElementById('editCarModel').value = model;
+            document.getElementById('editCarYear').value = year;
+        }
+
+    
+        </script>
 </body>
 </html>
+

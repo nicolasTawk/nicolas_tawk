@@ -1,16 +1,63 @@
+
+
 <!DOCTYPE html>
 <html>
 <head>
     <title>Admin Dashboard</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+    <style>
+        .button-1 {
+            background-color: #004d80; 
+            border-radius: 8px; 
+            color: #FFFFFF; 
+            height: 50px;
+            text-decoration: none;  
+            display: inline-block; 
+        }
+        
+        .button-1 a {
+            text-decoration: none; 
+            color: white;          
+            display: inline-block; 
+        }
+    
+        .button-1 a:hover {
+            color: #cccccc; 
+        }
+        </style>
 </head>
 <body>
-    <h1>Admin Dashboard</h1>
-    <nav>
-        <ul>
-            <li><a href="/cars/add">Add New Car</a></li>
-            <li><a href="/cars/view">Update Cars</a></li>
-            <li><a href="/cars/delete">Delete Cars</a></li>
-        </ul>
-    </nav>
+    <div class="title row justify-content-center align-item-center w-100 py-5" style="font-size: 2rem; color: #004d80;">Admin Dashboard</div>
+    <div class="row justify-content-center align-item-center">
+        <div class="col-2"> 
+            <button class="button-1 w-75" style="height: 3rem;"><a href="/cars/add-car">Add New Car</a></button>
+        </div>
+        <div class="col-2"> 
+            <button class="button-1 w-75" style="height: 3rem;"><a href="/cars/updatee">Update Cars</a></button>
+        </div>
+        <div class="col-2"> 
+            <button class="button-1 w-75" style="height: 3rem;"><a href="/cars/delete">Delete Cars</a></button>
+        </div>
+    </div>
+    <div class="row justify-content-center align-item-center pt-5">
+        <div class="col-2"> 
+            <button class="button-1 w-75" style="height: 3rem;"><a href="/customers/createcustomer">Add New Customer</a></button>
+        </div>
+        <div class="col-2"> 
+            <button class="button-1 w-75" style="height: 3rem;"><a href="/customers/update">Update Customer</a></button>
+        </div>
+        <div class="col-2"> 
+            <button class="button-1 w-75" style="height: 3rem;"><a href="/customers/delete">Delete Costomer</a></button>
+        </div>
+    </div>
+    
+
+    <!-- Bootstrap JavaScript and dependencies (Optional, for dynamic components) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </body>
 </html>
+

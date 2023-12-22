@@ -1,4 +1,4 @@
-// app.js or home_routes.js
+
 const express = require('express');
 const router = express.Router();
 

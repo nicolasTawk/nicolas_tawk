@@ -13,6 +13,15 @@ const getAllCars = async (req, res) => {
     }
 };
 
+const updateCarsPage = async (req, res) => {
+        try {
+            const cars = await carsServices.GetAllCars();
+            res.render('updateCars', { cars });
+        } catch (error) {
+            res.status(500).json({ error: "Error retrieving cars data", details: error.message });
+        }
+    };
+
 
 const getCarById = async (req, res) => {
     try {
@@ -46,11 +55,10 @@ const addNewCar = async (req, res) => {
 // Function to render the form for updating a car
 const updateCarForm = async (req, res) => {
     try {
-        const carId = req.params.id;
-        const car = await carsServices.GetCarById(carId);
-        res.render('updateCar', { car });
+        const cars = await carsServices.GetAllCars();
+        res.render('viewCars', { cars }); // Render EJS view instead of sending JSON
     } catch (error) {
-        res.render('error', { error: "An error occurred while fetching the car details." });
+        res.status(500).send("Error retrieving cars data");
     }
 };
 
@@ -58,7 +66,7 @@ const updateCarForm = async (req, res) => {
 const updateCar = async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-        return res.render('updateCar', { errors: errors.array() });
+        return res.render('updateCars', { errors: errors.array() });
     }
 
     try {
@@ -66,7 +74,7 @@ const updateCar = async (req, res) => {
         await carsServices.UpdateCarDetails(carId, req.body);
         res.redirect('/cars/view');
     } catch (error) {
-        res.render('updateCar', { error: "An error occurred while updating the car." });
+        res.render('updateCars', { error: "An error occurred while updating the car." });
     }
 };
 
@@ -107,4 +115,4 @@ const searchCars = async (req, res) => {
 
 
 
-module.exports = { addNewCar, getAllCars, getCarById,addNewCarForm, deleteCar ,updateCar, updateCarForm,rentCarPage, searchCars};
+module.exports = { addNewCar, getAllCars, getCarById,addNewCarForm, deleteCar ,updateCar, updateCarForm,rentCarPage, searchCars, updateCarsPage};
